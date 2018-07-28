@@ -1,7 +1,9 @@
 Some stores need to have a vertical navigation menu, based on their product categories. This extension will adds a new useful, professional and nice vertical navigation menu from all active categories to your store sidebar columns.
 
 **Sidebar Navigation Menu** has custom, unique and luxury designs for each one of "*default*", "*blue*", "*blank*", "*modern*" templates and for popular "templates-master f002 classic theme". Extension style will changes automatically between above designs when you use one of them in your website.
+
 Also the extension is completely intelligent and gets your custom them design automatically without any extra style copy or customization, however it has a custom CSS file with a lots of CSS selectors which lets you customize extension style as you like based on your website design.
+
 This extension has some interesting and powerful functionalities like ability to showing thumbnail icons for categories or having a collapsible navigation menu. One of powerful things about the extension is its flexible configuration settings with more than 30 options to having full control on your website navigation.
 
 ### Key Features:
