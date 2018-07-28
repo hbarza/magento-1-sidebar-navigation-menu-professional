@@ -7,29 +7,39 @@ Also the extension is completely intelligent and gets your custom them design au
 This extension has some interesting and powerful functionalities like ability to showing thumbnail icons for categories or having a collapsible navigation menu. One of powerful things about the extension is its flexible configuration settings with more than 30 options to having full control on your website navigation.
 
 ### Key Features:
-- Full Free Extension    
-- Search Engine Friendly URLs    
-- Intelligent Design to Fit with Any Custom Theme    
-- Compatible with Both Anchor and Non-anchor Categories    
-- Compatible with Both Flat and Non-flat Catalog Category    
-- Showing Category Thumbnail    
-- Collapsible Menus    
-- Defining Parent Category    
+- Full Free Extension
+- Search Engine Friendly URLs
+- Intelligent Design to Fit with Any Custom Theme
+- Compatible with Both Anchor and Non-anchor Categories
+- Compatible with Both Flat and Non-flat Catalog Category
+- Showing Category Thumbnail
+- Collapsible Menus
+- Defining Parent Category
 - Flexible Block Title
-- Showing Products Count    
-- Column and Block Position Selection    
-- Categories Maximal Depth    
-- Control Top Navigation Menu Visibility    
-- Control Browse by Category in Layered Navigation    
-- Custom Thumbnail Size    
-- Control to How Act in Non-category Pages    
-- Control to How Act for Product Page in Direct Access to Product    
-- Multilingual (Translatable)    
-- Separate Configuration for Each Store View    
-- Separate Configuration for Homepage and Customer Account page    
-- Dedicated CSS File    
-- Full Variety of Classes and CSS Selectors    
-- Dedicated Layout File    
+- Showing Products Count
+- Column and Block Position Selection
+- Categories Maximal Depth
+- Control Top Navigation Menu Visibility
+- Control Browse by Category in Layered Navigation
+- Custom Thumbnail Size
+- Control to How Act in Non-category Pages
+- Control to How Act for Product Page in Direct Access to Product
+- Multilingual (Translatable)
+- Separate Configuration for Each Store View
+- Separate Configuration for Homepage and Customer Account page
+- Dedicated CSS File
+- Full Variety of Classes and CSS Selectors
+- Dedicated Layout File
+
+### Version History:
+Published on this versions:
+- 1.4.2.0
+- 1.5.1.0
+- 1.6.0.0
+- 1.6.1.0
+- 1.6.2.0
+- 1.7.0.2
+- 1.8.1.0
 
 ### Installation Guide:
 The extension installation is easy and takes less than a minute to install.
