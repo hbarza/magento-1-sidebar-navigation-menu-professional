@@ -1,3 +1,4 @@
+# Magento 1 Sidebar Navigation Menu Professional
 Some stores need to have a vertical navigation menu, based on their product categories. This extension will adds a new useful, professional and nice vertical navigation menu from all active categories to your store sidebar columns.
 
 **Sidebar Navigation Menu** has custom, unique and luxury designs for each one of "*default*", "*blue*", "*blank*", "*modern*" templates and for popular "templates-master f002 classic theme". Extension style will changes automatically between above designs when you use one of them in your website.
@@ -31,15 +32,15 @@ This extension has some interesting and powerful functionalities like ability to
 - Full Variety of Classes and CSS Selectors
 - Dedicated Layout File
 
-### Version History:
+### Version Compatibility:
 Published on this versions:
-- 1.4.2.0
-- 1.5.1.0
-- 1.6.0.0
-- 1.6.1.0
-- 1.6.2.0
-- 1.7.0.2
 - 1.8.1.0
+- 1.7.0.2
+- 1.6.2.0
+- 1.6.1.0
+- 1.6.0.0
+- 1.5.1.0
+- 1.4.2.0
 
 ### Installation Guide:
 The extension installation is easy and takes less than a minute to install.
