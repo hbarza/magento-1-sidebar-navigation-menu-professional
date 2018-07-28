@@ -1,0 +1,86 @@
+<?php
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_Sidenav
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2011 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/**
+ * Sidebar menu
+ *
+ * @see Codnitive_sidenav_Block_Navigation
+ */
+?>
+
+<?php if ($categories = $this->getCategoriesNavMenu()): ?>
+<div id="sidebar-nav" class="block sidebar-nav-left <?php echo $this->getBlockAlias() ?>">
+    <div class="block-title">
+    	<strong><span><?php echo $this->__($this->getTitle()) ?></span></strong> 
+    </div>
+    <div class="block-content">
+        <ul id="sidebar-nav-menu">
+        <?php if ($this->showHome()): ?>
+            <li class="<?php echo $this->getHomeClasses() ?>">
+                <a href="<?php echo $this->getBaseUrl() ?>"><span class="category_name">Home</span></a>
+            </li>
+        <?php endif; ?>
+        <?php echo $categories; ?>
+        </ul>
+        <?php if ($this->showSupportLogo()): ?>
+        <div class="clearer support-logo-wrapper"></div>
+        <a href="http://www.codnitive.com/" target="_blank" class="support_logo">
+            <?php if ($this->showAsImage()): ?>
+            <img src="<?php echo $this->getSkinUrl('images/codnitive/sidenav/codnitive_logo.png'); ?>" alt="CODNITIVE&reg;" title="Sidebar Navigation by CODNITIVE"/>
+            <?php else: ?>
+            <span>CODNITIVE&REG;</span>
+            <?php endif; ?>
+        </a>
+        <?php endif; ?>
+    </div>
+    <?php if ($this->getConfig()->isCollapsible()): ?>
+    <script type="text/javascript" language="javascript">
+    //<![CDATA[
+
+    Codnitive = {
+        expandMenu: function(parent) 
+        {
+            var mode = parent.getElementsByTagName("ul")[0].getAttribute("expanded");
+            (mode == 1) ? Codnitive.collapse(parent) : Codnitive.expand(parent);
+        },
+
+        expand: function(parent)
+        {
+            parent.getElementsByTagName("ul")[0].style.display = "block";
+            parent.getElementsByTagName("span")[0].style.backgroundPosition = "right center";
+            parent.getElementsByTagName("ul")[0].setAttribute("expanded", "1");
+        },
+
+        collapse: function(parent)
+        {
+            parent.getElementsByTagName("ul")[0].style.display = "none";
+            parent.getElementsByTagName("span")[0].style.backgroundPosition = "left center";
+            parent.getElementsByTagName("ul")[0].setAttribute("expanded", "0");
+        }
+    };
+
+    //]]>
+    </script>
+    <?php endif; ?>
+</div>
+<?php endif ?>

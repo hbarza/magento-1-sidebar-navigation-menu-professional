@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_Sidenav
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2011 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+Supported layout update handles (action):
+- default
+- cms_index_index
+- cms_index_defaultindex
+- customer_account
+- catalog_category_default
+- catalog_category_layered
+- catalogsearch_result_index
+
+-->
+<layout version="1.2.0">
+
+    <!--
+    Default layout
+    -->
+    <default>
+        <reference name="head">
+            <action method="addCss" ifconfig="codnitivecatalog/sidenav/active">
+                <stylesheet>css/codnitive/sidenav.css</stylesheet>
+            </action>
+            <action method="removeItem" modules="codnitivecatalog/sidenav/;design/theme/" options="active;skin" conditions="1;default" operation="(0.1)">
+                <type>skin_css</type>
+                <name>css/codnitive/sidenav.css</name>
+            </action>
+            <action method="addCss" modules="codnitivecatalog/sidenav/;design/theme/" options="active;skin" conditions="1;default" operation="(0.1)">
+                <stylesheet>css/codnitive/sidenav_pd.css</stylesheet>
+            </action>
+        </reference>
+        
+        <!-- remove top navigation -->
+        <reference name="top.menu">
+            <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,remove_top_nav" conditions="1,1" operation="0.1">
+                <name>catalog.topnav</name>
+            </action>
+        </reference>
+        
+        <reference name="left">
+            <block type="sidenav/navigation" name="codnitive.sidenav.left" as="codnitiveSidenavLeft" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,left_col,both_col,before_all" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.sidenav.left.cart" as="codnitiveSidenavLeft" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,left_col,both_col,cart_sidebar" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.sidenav.left.layered" as="codnitiveSidenavLeft" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,left_col,both_col,layered_nav" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.sidenav.left.links" as="codnitiveSidenavLeft" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,left_col,both_col,customer_nav" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="right">
+            <block type="sidenav/navigation" name="codnitive.sidenav.right" as="codnitiveSidenavRight" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,right_col,both_col,before_all" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.sidenav.right.cart" as="codnitiveSidenavRight" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,right_col,both_col,cart_sidebar" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.sidenav.right.layered" as="codnitiveSidenavRight" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,right_col,both_col,layered_nav" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.sidenav.right.links" as="codnitiveSidenavRight" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,column,column,before" conditions="1,right_col,both_col,customer_nav" operation="((0.1)+(0.2)).3">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </default>
+
+    <!-- 
+    Home Page 
+    -->
+    <cms_index_index>
+        <reference name="header">
+            <reference name="top.menu">
+                <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,home_hide_top" conditions="1,1" operation="0.1">
+                    <name>catalog.topnav</name>
+                </action>
+            </reference>
+        </reference>
+        
+        <reference name="content">
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.content.top" as="codnitiveSidenavContent" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,home_content" conditions="1,1,1" operation="0.1.2">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+        
+        <reference name="left">
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left" as="codnitiveSidenavLeft" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,before_all,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left.cart" as="codnitiveSidenavLeft" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,cart_sidebar,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left.layered" as="codnitiveSidenavLeft" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,layered_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left.links" as="codnitiveSidenavLeft" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,customer_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="right">
+            <remove name="codnitive.sidenav.right"/>
+            <remove name="codnitive.sidenav.right.cart"/>
+            <remove name="codnitive.sidenav.right.layered"/>
+            <remove name="codnitive.sidenav.right.links"/>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right" as="codnitiveSidenavRight" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,before_all,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right.cart" as="codnitiveSidenavRight" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,cart_sidebar,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right.layered" as="codnitiveSidenavRight" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,layered_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right.links" as="codnitiveSidenavRight" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,customer_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </cms_index_index>
+
+    <!-- 
+    Home Page 
+    -->
+    <cms_index_defaultindex>
+        <reference name="header">
+            <reference name="top.menu">
+                <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,home_hide_top" conditions="1,1" operation="0.1">
+                    <name>catalog.topnav</name>
+                </action>
+            </reference>
+        </reference>
+        
+        <reference name="content">
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.content.top" as="codnitiveSidenavContent" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,home_content" conditions="1,1,1" operation="0.1.2">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+        
+        <reference name="left">
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left" as="codnitiveSidenavLeft" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,before_all,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left.cart" as="codnitiveSidenavLeft" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,cart_sidebar,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left.layered" as="codnitiveSidenavLeft" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,layered_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.left.links" as="codnitiveSidenavLeft" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,left_col,both_col,customer_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="right">
+            <remove name="codnitive.sidenav.right"/>
+            <remove name="codnitive.sidenav.right.cart"/>
+            <remove name="codnitive.sidenav.right.layered"/>
+            <remove name="codnitive.sidenav.right.links"/>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right" as="codnitiveSidenavRight" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,before_all,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right.cart" as="codnitiveSidenavRight" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,cart_sidebar,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right.layered" as="codnitiveSidenavRight" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,layered_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.home.sidenav.right.links" as="codnitiveSidenavRight" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,home_active,column,column,before,home_content" conditions="1,1,right_col,both_col,customer_nav,0" operation="(((0.1.2)+(0.1.3)).4).5">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </cms_index_defaultindex>
+    
+    <!-- 
+    Customer account
+    -->
+    <customer_account translate="label">
+        <reference name="header">
+            <reference name="top.menu">
+                <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,customer_hide_top" conditions="1,1" operation="0.1">
+                    <name>catalog.topnav</name>
+                </action>
+            </reference>
+        </reference>
+        
+        <reference name="left">
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.left" as="codnitiveSidenavLeft" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,left_col,both_col,before_all" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.left.cart" as="codnitiveSidenavLeft" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,left_col,both_col,cart_sidebar" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.left.layered" as="codnitiveSidenavLeft" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,left_col,both_col,layered_nav" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.left.links" as="codnitiveSidenavLeft" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,left_col,both_col,customer_nav" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.left.links.after" as="codnitiveSidenavLeft" after="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,left_col,both_col,customer_nav_after" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="right">
+            <remove name="codnitive.sidenav.right"/>
+            <remove name="codnitive.sidenav.right.cart"/>
+            <remove name="codnitive.sidenav.right.layered"/>
+            <remove name="codnitive.sidenav.right.links"/>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.right" as="codnitiveSidenavRight" before="-">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,right_col,both_col,before_all" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.right.cart" as="codnitiveSidenavRight" before="cart_sidebar">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,right_col,both_col,cart_sidebar" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.right.layered" as="codnitiveSidenavRight" before="catalog.leftnav">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,right_col,both_col,layered_nav" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.right.links" as="codnitiveSidenavRight" before="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,right_col,both_col,customer_nav" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+            <block type="sidenav/navigation" name="codnitive.customer.sidenav.right.links.after" as="codnitiveSidenavRight" after="customer_account_navigation">
+                <action method="setTemplate" modules="codnitivecatalog/sidenav/" options="active,customer_active,customer_column,customer_column,customer_before" conditions="1,1,right_col,both_col,customer_nav_after" operation="((0.1.2)+(0.1.3)).4">
+                    <template>codnitive/sidenav/navigation.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </customer_account>
+    
+    <!-- 
+    Catalog view categories (non-anchor)
+    -->
+    <catalog_category_default>
+        <reference name="left"> 
+            <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,remove_layered_nav" conditions="1,1" operation="0.1">
+                <name>catalog.leftnav</name>
+            </action> 
+        </reference>
+    </catalog_category_default>
+    
+    <!-- 
+    Catalog view categories (anchor)
+    -->
+    <catalog_category_layered>
+        <reference name="catalog.leftnav"> 
+            <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,remove_layered_nav" conditions="1,1" operation="0.1">
+                <name>category_filter</name>
+            </action> 
+        </reference>
+    </catalog_category_layered>
+    
+    <!-- 
+    Catalog quick search result page
+    -->
+    <catalogsearch_result_index>
+        <reference name="catalogsearch.leftnav"> 
+            <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,remove_layered_nav" conditions="1,1" operation="0.1">
+                <name>category_filter</name>
+            </action> 
+        </reference>
+    </catalogsearch_result_index>
+
+</layout>

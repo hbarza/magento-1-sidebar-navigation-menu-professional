@@ -1,0 +1,158 @@
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_Sidenav
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2011 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/* Sidebar Navigation ==================================================================== */
+#sidebar-nav {
+    margin-bottom: 20px;
+    border: 0 none;
+}
+#sidebar-nav .block-title {
+    border: 0 none !important;
+    height: 18px !important;
+    background: url('../../images/codnitive/sidenav/bkg_block-sidebarnav-title.gif') 0 0 repeat-x;
+    padding: 4px 10px 2px;
+}
+#sidebar-nav .block-title strong {
+    font: bold 12px/16px Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #FFF;
+}
+#sidebar-nav .block-content {
+    background: #EFEFEF url('../../images/codnitive/sidenav/bkg_block-sidebarnav-actions.gif') 0 0 repeat-x;
+    padding: 12px 10px;
+    border: 1px solid #C4C1BC;
+    overflow: auto;
+}
+#sidebar-nav .block-content a {
+    color: #444;
+    line-height: 1.7;
+}
+#sidebar-nav-menu > li {
+    border-bottom: 1px solid #CCC;
+    list-style: inside disc;
+    font-weight: bold;
+    padding: 8px 0;
+}
+#sidebar-nav-menu > li.last {
+    border-bottom: 0 none;
+}
+#sidebar-nav-menu li ul {
+    font-weight: normal;
+}
+#sidebar-nav li.active,
+#sidebar-nav li.active > a,
+#sidebar-nav li.active > .collapsible-wrapper > a {
+    color: #008000;
+}
+#sidebar-nav ul.ul-thumb {
+    padding-left: 0;
+}
+#sidebar-nav-menu > li.parent > ul.ul-thumb {
+    padding-left: 10px;
+}
+#sidebar-nav li.thumb {
+    list-style-type: none;
+}
+#sidebar-nav-menu > li.no-thumb,
+#sidebar-nav-menu > li.thumb {
+    margin-left: 0 !important;
+    list-style-type: none;
+}
+#sidebar-nav img {
+    border: 0 none !important;
+    outline: 0 none !important;
+}
+#sidebar-nav span.product-count {
+    color: #000;
+}
+#sidebar-nav .home {
+    list-style: none !important;
+}
+#sidebar-nav .home a {
+    display:inline-block;
+    padding-left:20px;
+    background:url('../../images/codnitive/sidenav/home.png') left top no-repeat;
+    min-height:16px;
+}
+#sidebar-nav .support-logo-wrapper {
+    margin-top:10px;
+}
+#sidebar-nav .support_logo {
+    font-size: 9px;
+    float: right;
+    right: 5px;
+    bottom: 5px;
+    text-decoration: none;
+}
+#sidebar-nav .support_logo img {
+    max-width: 65px;
+}
+
+/* Collapsible Design ==================================================================== */
+#sidebar-nav li.thumb .thumb-img-left {
+    float: left;
+    margin: 1px 3px 0 0;
+}
+#sidebar-nav li.thumb .thumb-img-right {
+    float: right;
+    margin: 1px 3px 0;
+}
+#sidebar-nav-menu .arrow-left,
+#sidebar-nav-menu .arrow-right, 
+#sidebar-nav-menu .plus-left,
+#sidebar-nav-menu .plus-right {
+    float: left;
+    background: url('../../images/codnitive/sidenav/arrows.gif') left center no-repeat;
+    display: block;
+    margin-top: 2px;
+    margin: 1px 3px 0;
+    cursor:pointer;
+} 
+#sidebar-nav-menu .plus-left,
+#sidebar-nav-menu .plus-right
+{
+    background-image: url('../../images/codnitive/sidenav/plus.gif');
+}
+#sidebar-nav-menu .arrow-right, 
+#sidebar-nav-menu .plus-right {
+    float:right;
+    display:inline !important;
+}
+#sidebar-nav-menu li ul[expanded="0"] {
+    display: none;
+}
+#sidebar-nav li.active > ul {
+    display: block;
+}
+#sidebar-nav li.active > .arrow-left,
+#sidebar-nav li.active > .arrow-right, 
+#sidebar-nav li.active > .plus-left,
+#sidebar-nav li.active > .plus-right {
+    display: block;
+    background-position: right center;
+}
+#sidebar-nav-menu > li.collapsible {
+    list-style: none !important;
+}
+#sidebar-nav .collapse-name {
+    cursor:pointer;
+}

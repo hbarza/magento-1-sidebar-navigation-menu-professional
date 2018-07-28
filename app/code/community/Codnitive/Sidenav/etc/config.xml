@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_Sidenav
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2011 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Codnitive_Sidenav>
+            <version>1.8.14</version>
+            <title>Sidebar Navigation Menu Professional</title>
+            <link><![CDATA[http://www.codnitive.com/]]>
+            </link>
+        </Codnitive_Sidenav>
+    </modules>
+    <global>
+        <models>
+            <sidenav>
+                <class>Codnitive_Sidenav_Model</class>
+            </sidenav>
+        </models>
+        <helpers>
+            <sidenav>
+                <class>Codnitive_Sidenav_Helper</class>
+            </sidenav>
+        </helpers>
+        <blocks>
+            <sidenav>
+                <class>Codnitive_Sidenav_Block</class>
+            </sidenav>
+        </blocks>
+        <resources>
+            <sidenav_setup>
+                <setup>
+                    <module>Codnitive_Sidenav</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </sidenav_setup>
+            <sidenav_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </sidenav_write>
+            <sidenav_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </sidenav_read>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Codnitive_Sidenav>
+                    <files>
+                        <default>Codnitive_Sidenav.csv</default>
+                    </files>
+                </Codnitive_Sidenav>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <frontend>
+        <translate>
+            <modules>
+                <Codnitive_Sidenav>
+                    <files>
+                        <default>Codnitive_Sidenav.csv</default>
+                    </files>
+                </Codnitive_Sidenav>
+            </modules>
+        </translate>
+
+        <layout>
+            <updates>
+                <sidenav>
+                    <file>codnitive/sidenav.xml</file>
+                </sidenav>
+            </updates>
+        </layout>
+    </frontend>
+
+    <default>
+        <codnitivecatalog>
+            <sidenav>
+                <active>1</active>
+                <remove_top_nav>0</remove_top_nav>
+                <remove_layered_nav>1</remove_layered_nav>
+                <column>left_col</column>
+                <before>before_all</before>
+                <parent>root</parent>
+                <load_no_category>root</load_no_category>
+                <max_depth>0</max_depth>
+                <product_direct_access>1</product_direct_access>
+                <title>static</title>
+                <static_title>Categories</static_title>
+                <product_count>0</product_count>
+                <remove_zero_count>0</remove_zero_count>
+                <home>1</home>
+                <logo>1</logo>
+                <show_image>1</show_image>
+                <collapsible>1</collapsible>
+                <expand_by_name>0</expand_by_name>
+                <collapsible_icon_position>right</collapsible_icon_position>
+                <collapsible_icon_type>plus</collapsible_icon_type>
+                <thumbnail>0</thumbnail>
+                <thumb_position>left</thumb_position>
+                <thumb_size>0</thumb_size>
+                <thumb_width>14</thumb_width>
+                <thumb_height>14</thumb_height>
+                <home_active>1</home_active>
+                <home_hide_top>0</home_hide_top>
+                <home_hide_home>1</home_hide_home>
+                <home_content>0</home_content>
+                <customer_active>1</customer_active>
+                <customer_hide_top>0</customer_hide_top>
+                <customer_column>left_col</customer_column>
+                <customer_before>customer_nav_after</customer_before>
+            </sidenav>
+        </codnitivecatalog>
+    </default>
+</config>

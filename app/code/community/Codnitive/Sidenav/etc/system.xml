@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_Sidenav
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2011 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>	
+    <sections>
+        <codnitivecatalog translate="label" module="sidenav">
+            <label>Catalog</label>
+            <tab>codall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <sidenav translate="label" module="sidenav">
+                    <label>Sidebar Navigation Menu Professional</label>
+                    <sort_order>450</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_base translate="label">
+                            <label>Base Settings</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_base>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <remove_top_nav translate="label,comment">
+                            <label>Remove Top Navigation Menu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Affects on all pages in any case.</comment>
+                        </remove_top_nav>
+                        <remove_layered_nav translate="label,comment">
+                            <label>Remove Layered Navigation Categories</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Removes browse by category from layered navigation.</comment>
+                        </remove_layered_nav>
+                        <column translate="label">
+                            <label>Default Column</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_column</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </column>
+                        <before translate="label,tooltip">
+                            <label>Before</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_before</source_model>
+                            <sort_order>51</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If "Before All" doesn't work, just try another block to put Sidebar Navigation before all other blocks.
+<br />If still it doesn't work you must edit "layout/codnitive/sidenav.xml" file.]]></tooltip>
+                        </before>
+                        <parent translate="label">
+                            <label>Parent Category</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_parent</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </parent>
+                        <load_no_category translate="label,comment">
+                            <label>If no Category, so Load</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_loadnocategory</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Loads store root if parent category is not available.</comment>
+                        </load_no_category>
+                        <max_depth translate="label,comment">
+                            <label>Maximal Depth</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-digits</validate>
+                            <comment>Set to 0 or leave empty for unlimit depth.</comment>
+                        </max_depth>
+                        <product_direct_access translate="label,comment">
+                            <label>Active Product Categories In Direct Access</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_direct_access>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_title</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <static_title translate="label,tooltip">
+                            <label>Static Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Static title also use if current or parent category does not exists.</tooltip>
+                        </static_title>
+                        <product_count translate="label">
+                            <label>Show Product Count</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_count>
+                        <remove_zero_count translate="label,comment">
+                            <label>Remove Zero Product Count</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>111</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Removes product count for categories with zero product number.</comment>
+                            <depends>
+                                <product_count>1</product_count>
+                            </depends>
+                        </remove_zero_count>
+                        <home translate="label">
+                            <label>Show Home Link</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home>
+                        <logo translate="label,comment">
+                            <label>Show Our Logo</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>We would greatly appreciate if you support us by showing our logo at the bottom of sidebar navigation.</comment>
+                        </logo>
+                        <show_image translate="label">
+                            <label>Show Image Logo</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>131</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <logo>1</logo>
+                            </depends>
+                        </show_image>
+                        
+                        <heading_collapsible translate="label">
+                            <label>Collapsible Settings</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_collapsible>
+                        <collapsible translate="label">
+                            <label>Collapsible</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </collapsible>
+                        <expand_by_name translate="label,tooltip">
+                            <label>Expand by Parent Name</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Yes: When you click on a parent category name, it opens/closes sub-categories.<br />No: Parent category name is a link which loads products of that category.]]></tooltip>
+                            <depends>
+                                <collapsible>1</collapsible>
+                            </depends>
+                        </expand_by_name>
+                        <collapsible_icon_position translate="label">
+                            <label>Icon Position</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_float</source_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </collapsible_icon_position>
+                        <collapsible_icon_type translate="label">
+                            <label>Icon Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_icon</source_model>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </collapsible_icon_type>
+                        
+                        <heading_thumb translate="label">
+                            <label>Thumbnail Settings</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_thumb>
+                        <thumbnail translate="label,comment">
+                            <label>Thumbnail Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>410</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Shows thumbnail of menus.</comment>
+                        </thumbnail>
+                        <thumb_position translate="label">
+                            <label>Thumbnail Position</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_float</source_model>
+                            <sort_order>415</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thumb_position>
+                        <thumb_size translate="label,comment">
+                            <label>Thumbnail Size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_thumbsize</source_model>
+                            <sort_order>420</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Applies for all thumbnails.</comment>
+                        </thumb_size>
+                        <thumb_width translate="label,comment">
+                            <label>Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>430</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-digits</validate>
+                            <comment>A number based on 'px' (default: 14).</comment>
+                            <depends>
+                                <thumb_size>1</thumb_size>
+                                <thumbnail>1</thumbnail>
+                            </depends>
+                        </thumb_width>
+                        <thumb_height translate="label,comment">
+                            <label>Height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>440</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-digits</validate>
+                            <comment>A number based on 'px' (default: 14).</comment>
+                            <depends>
+                                <thumb_size>1</thumb_size>
+                                <thumbnail>1</thumbnail>
+                            </depends>
+                        </thumb_height>
+                        
+                        <heading_home translate="label">
+                            <label>Home Page Settings</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_home>
+                        <home_active translate="label">
+                            <label>Show in Home Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>710</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home_active>
+                        <home_hide_top translate="label,comment">
+                            <label>Hide Top Navigation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>720</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Affectes on top navigation for homepage, just if base "Remove Top Navigation Menu" is "No".</comment>
+                        </home_hide_top>
+                        <home_hide_home translate="label">
+                            <label>Remove Home Link in Homepage</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>723</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home_hide_home>
+                        <home_content translate="label,comment">
+                            <label>Available in Homepage Content</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>725</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Yes: Adds vertical navigation into homepage content, and removes it from sidebar columns.</comment>
+                        </home_content>
+                        
+                        <heading_customer translate="label">
+                            <label>Customer Account Settings</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>800</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_customer>
+                        <customer_active translate="label">
+                            <label>Show in Customer Account</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>810</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_active>
+                        <customer_hide_top translate="label,comment">
+                            <label>Hide Top Navigation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>820</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Affectes on top navigation for customer account pages, just if base "Remove Top Navigation Menu" is "No".</comment>
+                        </customer_hide_top>
+                        <customer_column translate="label">
+                            <label>Show In</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_column</source_model>
+                            <sort_order>830</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_column>
+                        <customer_before translate="label,tooltip">
+                            <label>Before</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sidenav/system_config_source_before</source_model>
+                            <sort_order>831</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If "Before All" doesn't work, just try another block from this section to put Sidebar Navigation before all other blocks.
+<br />If still it doesn't work you must edit "layout/codnitive/sidenav.xml" file.]]></tooltip>
+                        </customer_before>
+                    </fields>
+                </sidenav>
+            </groups>
+        </codnitivecatalog>
+    </sections>
+</config>
